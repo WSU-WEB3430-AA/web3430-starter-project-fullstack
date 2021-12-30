@@ -1,4 +1,4 @@
-# Starter Project for a fullstack MERN web application
+# A fullstack MERN-based starter project
 A starter web project powered by webpack
 
 ## Instructions
