@@ -29,7 +29,11 @@ app.use(logger('dev'))
 // Static files
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, '..', '..', '..', 'public')))
+if((process.env.APP_DEPLOYMENT || 'local') === 'heroku'){
+  app.use(express.static(path.join(__dirname, 'public')))
+}else{
+  app.use(express.static(path.join(__dirname, '..', '..', '..', 'public')))
+}
 
 // Sessions
 const session = require('express-session')
